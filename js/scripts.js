@@ -32,3 +32,61 @@ window.addEventListener('DOMContentLoaded', event => {
     });
 
 });
+
+
+
+
+
+// Projects
+const workBtncontainer = document.querySelector('.work__categories');
+const projectContainer = document.querySelector('.work__projects');
+// add array for all the 8 projects
+const projects = document.querySelectorAll('.project');
+workBtncontainer.addEventListener('click', (e) =>{
+    const filter = e.target.dataset.filter || e.target.parentNode.dataset.filter;
+    if( filter == null) {
+        return;
+    }
+    // } if filter is null, do not do anything
+    //console.log(filter);
+
+
+    //Remove selection from the previous item and select the new one
+    const active = document.querySelector('.category__btn.selected');
+    active.classList.remove('selected');
+    const target = e.target.nodeName == 'BUTTON' ? e.target :
+                    e.target.parentNode;
+    target.classList.add('selected');
+
+    projectContainer.classList.add('anim-out');
+    setTimeout(() => {
+
+        projects.forEach((project) => {
+            console.log(project.dataset.type);
+            if(filter === '*' || filter === project.dataset.type ){
+                project.classList.remove('invisible');
+                //WHEN it is clicked, not showing...!!
+            } else {
+                project.classList.add('invisible');
+            }
+        });
+        projectContainer.classList.remove('anim-out');
+    }, 300);
+
+    //console.log(`-----------------`);
+// method 2
+// for(let project of projects){
+//  console.log(project);
+
+// }
+
+//console.log(`-----------------`);
+// method 3
+// let project;
+// for (let i = 0; i < projects.length; i++) {
+//     project = projects[i];
+//      console.log(project);
+// }
+
+    //console.log(filter);
+});

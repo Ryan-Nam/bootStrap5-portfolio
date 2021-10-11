@@ -11,7 +11,7 @@
  * Licensed under MIT (https://github.com/twbs/bootstrap/blob/main/LICENSE)
  */
 
- /* 3b5998 - primary, hover: #4267b2  border: 29487d*/
+/* 3b5998 - primary, hover: #4267b2  border: 29487d*/
 :root {
   --bs-blue: #0d6efd;
   --bs-indigo: #6610f2;
@@ -11799,4 +11799,122 @@ section.resume-section .resume-section-content {
     padding-top: 5rem;
     padding-bottom: 5rem;
   }
+}
+
+/* Work */
+
+.work__categories {
+  margin: 40px;
+}
+.category__btn {
+  border: 1px solid #bdbdbd;
+  border-radius: 4px;
+  font-size: 18px;
+  padding: 8px 48px;
+}
+
+.category__btn.selected,
+.category__btn:hover {
+  background-color: #3b5998;
+  color: #ffffff;
+}
+
+.category__btn.selected .category__count,
+.category__btn:hover .category__count {
+  opacity: 1;
+  top: 0;
+}
+
+.category__count {
+  background-color: #feb546;
+  border-radius: 50%;
+  color: #ffffff;
+  width: 24px;
+  height: 24px;
+  display: inline-block;
+  line-height: 24px;
+  position: relative;
+  top: -20px;
+  left: 4px;
+  opacity: 0;
+  transition: all 300ms ease-in;
+}
+
+.work__projects {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  opacity: 1;
+  transition: all 300ms ease-out;
+}
+
+.work__projects.anim-out {
+  opacity: 0;
+  transform: scale(0.96) translateY(40px);
+}
+.project {
+  position: relative;
+  width: 280px;
+  height: 250px;
+  margin: 2px;
+  background-color: #eeeeee;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+}
+
+.project.invisible {
+  display: none;
+}
+
+.project__img {
+  max-width: 100%;
+  max-height: 100%;
+}
+
+.project__description {
+  position: absolute;
+  background-color: black;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  opacity: 0;
+  transition: all 300ms ease-in;
+  transform: translateY(10px);
+  text-align: center;
+}
+
+.project:hover .project__description {
+  opacity: 0.8;
+  transform: translateY(0px);
+}
+
+.project__description h3 {
+  color: #feb546;
+  font-size: 18px;
+  font-weight: 400;
+  margin: 8px 0;
+  text-transform: none;
+  font-family: var(--bs-body-font-family);
+}
+
+.project__description span {
+  color: #fff;
+}
+
+.project__description h3:after {
+  content: "";
+  width: 50px;
+  height: 2px;
+  display: block;
+  background-color: #bdbdbd;
+  position: relative;
+  left: 50%;
+  transform: translateX(-50%);
+  margin-top: 8px;
 }
